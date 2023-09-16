@@ -32,8 +32,8 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-two:
-  runs-on: ubuntu-latest
-  steps:
-    - name: job.two
-      run: hello world!
+  two:
+    runs-on: ubuntu-latest
+    steps:
+      - name: job.two
+        run: hello world!
