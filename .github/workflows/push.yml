@@ -36,6 +36,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: scipt
-        run: return "Hello!" |
-            VAR = IRON MAN
-            echo i am $VAR
+        run: |
+          "echo variable=IRON MAN" >> $GITHUB_OUTPUT
+          echo i am $variable
