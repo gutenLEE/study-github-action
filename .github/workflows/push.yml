@@ -35,5 +35,14 @@ jobs:
   two:
     runs-on: ubuntu-latest
     steps:
-      - name: job.two
-        run: hello world!
+      - uses: actions/github-script@v6
+        id: set-result
+        with:
+          script: return "Hello!" |
+            VAR = IRON MAN
+            echo i am $VAR
+
+
+          result-encoding: string
+      - name: Get result
+        run: echo "${{steps.set-result.outputs.result}}"
