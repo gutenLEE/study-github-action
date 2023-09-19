@@ -58,8 +58,10 @@ jobs:
   three:
     needs: two
     runs-on: ubuntu-latest
+    env:
+      PUBLIC_IP: ${{ needs.two.outputs.public-ip }}
     steps:
       - name: Use the value
         id: step_two
         run: |
-          printf '%s\n' "Job 3 : IP is ${{ needs.two.outputs.public-ip }}" 
+          printf '%s\n' "Job 3 : IP is ${{env.PUBLIC_IP}}" 
