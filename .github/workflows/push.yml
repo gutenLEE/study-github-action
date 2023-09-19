@@ -45,3 +45,9 @@ jobs:
       - name: Print Public IP
         run: |
           echo ${{ steps.ip.outputs.ipv4 }}
+          echo "action_state1=${{ steps.ip.outputs.ipv4 }}" >> "$GITHUB_ENV"
+
+      - name: Use the value
+        id: step_two
+        run: |
+          printf '%s\n' "IP is $action_state1" 
