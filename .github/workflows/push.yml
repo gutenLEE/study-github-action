@@ -37,11 +37,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3  
-      
+
       - name: Public IP
         id: ip
         uses: haythem/public-ip@v1.3
 
-      - name: scipt
+      - name: Print Public IP
         run: |
-            ${{ steps.ip.outputs.ipv4 }}
+          echo ${{ steps.ip.outputs.ipv4 }}
