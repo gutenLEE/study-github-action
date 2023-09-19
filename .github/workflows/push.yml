@@ -34,7 +34,10 @@ jobs:
           echo test, and deploy your project.
   two:
     runs-on: ubuntu-latest
+    outputs:
+      public-ip: ${{ steps.ip.outputs.action_state1 }}
     steps:
+
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3  
 
@@ -46,6 +49,7 @@ jobs:
         run: |
           echo ${{ steps.ip.outputs.ipv4 }}
           echo "action_state1=${{ steps.ip.outputs.ipv4 }}" >> "$GITHUB_ENV"
+          echo "action_state1=${{ steps.ip.outputs.ipv4 }}" >> "$GITHUB_OUTPUT"
 
       - name: Use the value
         id: step_two
@@ -58,4 +62,4 @@ jobs:
       - name: Use the value
         id: step_two
         run: |
-          printf '%s\n' "Job 3 : IP is ${{ steps.env.action_state1 }}" 
+          printf '%s\n' "Job 3 : IP is ${{ needs.two.outputs.public-ip.action_state1 }}" 
