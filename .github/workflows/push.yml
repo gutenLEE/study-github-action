@@ -51,3 +51,10 @@ jobs:
         id: step_two
         run: |
           printf '%s\n' "IP is $action_state1" 
+  three:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use the value
+        id: step_two
+        run: |
+          printf '%s\n' "Job 3 : IP is $action_state1" 
