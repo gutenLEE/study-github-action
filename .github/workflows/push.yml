@@ -35,7 +35,7 @@ jobs:
   two:
     runs-on: ubuntu-latest
     outputs:
-      public-ip: ${{ steps.ip.outputs.action_state1 }}
+      public-ip: ${{ steps.set-ip.outputs.action_state1 }}
     steps:
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -46,6 +46,7 @@ jobs:
         uses: haythem/public-ip@v1.3
 
       - name: Print Public IP
+        id: set-ip
         run: |
           echo ${{ steps.ip.outputs.ipv4 }}
           echo "action_state1=${{ steps.ip.outputs.ipv4 }}" >> "$GITHUB_ENV"
