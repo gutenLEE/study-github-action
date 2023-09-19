@@ -57,4 +57,4 @@ jobs:
       - name: Use the value
         id: step_two
         run: |
-          printf '%s\n' "Job 3 : IP is $action_state1" 
+          printf '%s\n' "Job 3 : IP is ${{ env.action_state1 }}" 
