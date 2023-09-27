@@ -45,7 +45,7 @@ jobs:
           VPCNO: ${{ secrets.VPCNO }}
           ACCESSKEY: ${{ secrets.ACCESSKEY }}
           SECRETKEY: ${{ secrets.SECRETKEY }}
-          IP: $IP
+          IP: ${{ steps.ip.outputs.ipv4 }}
       - name:
         run: |
           echo Generated token is $token
