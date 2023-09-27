@@ -1,4 +1,5 @@
 function makeSignature() {
+
 	nl=$'\\n'
 
 	TIMESTAMP=$(echo $(($(date +%s%N)/1000000)))
@@ -17,9 +18,7 @@ function makeSignature() {
 	SIGNATURE=$(echo -n -e "$SIG"|iconv -t utf8 |openssl dgst -sha256 -hmac $SECRETKEY -binary|openssl enc -base64)
 
 
-	echo $SIGNATURE
-
-	curl -v --location $('https://ncloud.apigw.ntruss.com'${URI}) \
+	curl --location 'https://ncloud.apigw.ntruss.com'$URI \
 		--header "Content-type:application/json" \
 		--header "x-ncp-apigw-timestamp:$TIMESTAMP" \
 		--header "x-ncp-iam-access-key:$ACCESSKEY" \
@@ -27,4 +26,4 @@ function makeSignature() {
 
 }
 
-token=$( makeSignature )
+makeSignature
