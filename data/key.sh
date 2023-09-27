@@ -2,11 +2,16 @@ function makeSignature() {
 	nl=$'\\n'
 
 	TIMESTAMP=$(echo $(($(date +%s%N)/1000000)))
-	ACCESSKEY=TOjd9WuQ3vsEaIfNGXhN
-	SECRETKEY=k13ZLl8lNUozdXGBHdavSSBkMnnUyYMF3tHt0dK7
+	ACCESSKEY=$ACCESSKEY
+	SECRETKEY=$SECRETKEY
 
 	METHOD="GET"
-	URI="/vserver/v2/addAccessControlGroupInboundRule?regionCode=KR&vpcNo=132024&accessControlGroupNo=$ACCESSCONTROLGROUPNO&accessControlGroupRuleList.1.protocolTypeCode=TCP&accessControlGroupRuleList.1.ipBlock=***.***.0.0%2F0&accessControlGroupRuleList.1.portRange=8888"
+	URI="/vserver/v2/addAccessControlGroupInboundRule?regionCode=KR
+	&vpcNo=$VPCNO
+	&accessControlGroupNo=$ACCESSCONTROLGROUPNO
+	&accessControlGroupRuleList.1.protocolTypeCode=TCP
+	&accessControlGroupRuleList.1.ipBlock=$IP
+	&accessControlGroupRuleList.1.portRange=8888"
 
 	SIG="$METHOD"' '"$URI"${nl}
 	SIG+="$TIMESTAMP"${nl}
@@ -22,9 +27,8 @@ function makeSignature() {
 		-H "x-ncp-apigw-timestamp:$TIMESTAMP" \
 		-H "x-ncp-iam-access-key:$ACCESSKEY" \
 		-H "x-ncp-apigw-signature-v2:$SIGNATURE" \
-		'https://ncloud.apigw.gov-ntruss.com/vserver/v2/addAccessControlGroupInboundRule?regionCode=KR&vpcNo=47309&accessControlGroupNo=132024&accessControlGroupRuleList.1.protocolTypeCode=TCP&accessControlGroupRuleList.1.ipBlock=0.0.0.0/0&accessControlGroupRuleList.1.portRange=8888'
+		'https://ncloud.apigw.gov-ntruss.com'$URI
 
 }
 
 token=$( makeSignature )
-export TOKEN=$token
