@@ -17,3 +17,5 @@ function makeSignature() {
 
     echo $SIGNATURE
 }
+
+makeSignature
