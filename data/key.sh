@@ -8,6 +8,8 @@ function makeSignature() {
 	METHOD="GET"
 	URI="/vserver/v2/addAccessControlGroupInboundRule?regionCode=KR&vpcNo=$VPCNO&accessControlGroupNo=$ACCESSCONTROLGROUPNO&accessControlGroupRuleList.1.protocolTypeCode=TCP&accessControlGroupRuleList.1.ipBlock=$IP&accessControlGroupRuleList.1.portRange=8888"
 
+	echo $IP
+	
 	SIG="$METHOD"' '"$URI"${nl}
 	SIG+="$TIMESTAMP"${nl}
 	SIG+="$ACCESSKEY"
