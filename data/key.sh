@@ -24,7 +24,7 @@ function makeSignature() {
 		-H "x-ncp-apigw-timestamp:$TIMESTAMP" \
 		-H "x-ncp-iam-access-key:$ACCESSKEY" \
 		-H "x-ncp-apigw-signature-v2:$SIGNATURE" \
-		'https://ncloud.apigw.gov-ntruss.com'$URI
+		'https://ncloud.apigw.ntruss.com'$URI
 
 }
 
