@@ -21,20 +21,31 @@ jobs:
     steps:
       - name: Check out the repository to the runner
         uses: actions/checkout@v4  
+
+      - name: Public IP
+        id: ip
+        uses: haythem/public-ip@v1.3
+
+      - name: Print Public IP
+        id: set-ip
+        run: |
+          echo ${{ steps.ip.outputs.ipv4 }}
+          echo "IP=${{ steps.ip.outputs.ipv4 }}" >> "$GITHUB_ENV"
+          echo "IP=${{ steps.ip.outputs.ipv4 }}" >> "$GITHUB_OUTPUT"
+
       - name: Make the script files executable
         run: chmod +x ./data/key.sh
       - name: Run a script
         run: |
           ./data/key.sh
-          printf '%s\n 왜 안나오냐  $TOKEN'  
-          echo "token=$TOKEN" >> "$GITHUB_ENV" 
         env:
           GITHUB_REP: $GITHUB_ENV
           GITHUB_JOB: $GITHUB_JOB
           ACCESSCONTROLGROUPNO:  ${{ secrets.ACCESSCONTROLGROUPNO }}
           VPCNO: ${{ secrets.VPCNO }}
           ACCESSKEY: ${{ secrets.ACCESSKEY }}
-          SECRETKEY: ${{ secrets.SECRETKEY }} 
+          SECRETKEY: ${{ secrets.SECRETKEY }}
+          IP: $IP
       - name:
         run: |
           echo Generated token is $token
