@@ -17,5 +17,5 @@ function makeSignature() {
 	echo $SIGNATURE
 }
 
-TOKEN=$( makeSignature )
-echo $TOKEN
+token=$( makeSignature )
+export TOKEN=$token
