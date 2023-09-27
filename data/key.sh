@@ -3,7 +3,6 @@ function makeSignature() {
 
 	TIMESTAMP=$(echo $(($(date +%s%N)/1000000)))
 	ACCESSKEY=$GITHUB_JOB
-    echo $ACCESSKEY
 	SECRETKEY="{secretKey}"				
     
 	METHOD="GET"
@@ -19,3 +18,4 @@ function makeSignature() {
 }
 
 TOKEN=$( makeSignature )
+echo $TOKEN
