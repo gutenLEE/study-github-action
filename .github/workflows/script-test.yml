@@ -14,7 +14,7 @@ on:
 env:
   GITHUB_REP: $GITHUB_REPOSITORY
   GITHUB_JOB: $GITHUB_JOB
-  TOKEN:
+
 jobs:
   script-test-job:
     runs-on: ubuntu-latest
@@ -30,6 +30,7 @@ jobs:
         env:
           GITHUB_REP: $GITHUB_REPOSITORY
           GITHUB_JOB: $GITHUB_JOB
+          TOKEN:
       - name:
         run: |
           echo Generated token is
