@@ -9,7 +9,7 @@ function makeSignature() {
 	URI="/vserver/v2/addAccessControlGroupInboundRule?regionCode=KR&vpcNo=$VPCNO&accessControlGroupNo=$ACCESSCONTROLGROUPNO&accessControlGroupRuleList.1.protocolTypeCode=TCP&accessControlGroupRuleList.1.ipBlock=$IP&accessControlGroupRuleList.1.portRange=8888"
 
 	echo $IP
-	
+
 	SIG="$METHOD"' '"$URI"${nl}
 	SIG+="$TIMESTAMP"${nl}
 	SIG+="$ACCESSKEY"
@@ -19,7 +19,7 @@ function makeSignature() {
 
 	echo $SIGNATURE
 
-	curl -i -X $METHOD \
+	curl -i -v -X $METHOD \
 		-H "Content-type: application/json" \
 		-H "x-ncp-apigw-timestamp:$TIMESTAMP" \
 		-H "x-ncp-iam-access-key:$ACCESSKEY" \
