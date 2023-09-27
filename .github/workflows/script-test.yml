@@ -14,7 +14,6 @@ on:
 env:
   GITHUB_REP: $GITHUB_REPOSITORY
   GITHUB_JOB: $GITHUB_JOB
-  TOKEN:
 
 jobs:
   script-test-job:
@@ -29,10 +28,8 @@ jobs:
           ./data/key.sh
           echo "TOKEN=$TOKEN" >> "$GITHUB_ENV" 
         env:
-          GITHUB_REP: $GITHUB_REPOSITORY
+          GITHUB_REP: $GITHUB_ENV
           GITHUB_JOB: $GITHUB_JOB
-          TOKEN:
       - name:
         run: |
-          echo Generated token is
-          echo ${{env.TOKEN}}
+          echo Generated token is $TOKEN
