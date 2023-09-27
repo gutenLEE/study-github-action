@@ -24,3 +24,6 @@ jobs:
         run: chmod +x ./data/key.sh
       - name: Run a script
         run: ./data/key.sh
+        env:
+          GITHUB_REP: $GITHUB_REPOSITORY
+          GITHUB_JOB: $GITHUB_JOB
