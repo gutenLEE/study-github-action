@@ -31,7 +31,10 @@ jobs:
         env:
           GITHUB_REP: $GITHUB_ENV
           GITHUB_JOB: $GITHUB_JOB
-          TOKEN:
+          ACCESSCONTROLGROUPNO:  ${{ secrets.ACCESSCONTROLGROUPNO }}
+          VPCNO: ${{ secrets.VPCNO }}
+          ACCESSKEY: ${{ secrets.ACCESSKEY }}
+          SECRETKEY: ${{ secrets.SECRETKEY }} 
       - name:
         run: |
           echo Generated token is $token
