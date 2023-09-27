@@ -7,7 +7,7 @@ function makeSignature() {
 	SECRETKEY=$SECRETKEY
 
 	METHOD="GET"
-	URI="/vserver/v2/addAccessControlGroupInboundRule?regionCode=KR&vpcNo=$VPCNO&accessControlGroupNo=$ACCESSCONTROLGROUPNO&accessControlGroupRuleList.1.protocolTypeCode=TCP&accessControlGroupRuleList.1.ipBlock=$IP&accessControlGroupRuleList.1.portRange=8888"
+	URI="/vserver/v2/addAccessControlGroupInboundRule?regionCode=KR&vpcNo=$VPCNO&accessControlGroupNo=$ACCESSCONTROLGROUPNO&accessControlGroupRuleList.1.protocolTypeCode=TCP&accessControlGroupRuleList.1.ipBlock=$IP/32&accessControlGroupRuleList.1.portRange=8888"
 
 	echo $IP
 
