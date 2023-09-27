@@ -26,10 +26,11 @@ jobs:
       - name: Run a script
         run: |
           ./data/key.sh
-          echo "TOKEN=$TOKEN" >> "$GITHUB_ENV" 
+          printf '%s\n' "$action_state"
+          echo "token=$TOKEN" >> "$GITHUB_ENV" 
         env:
           GITHUB_REP: $GITHUB_ENV
           GITHUB_JOB: $GITHUB_JOB
       - name:
         run: |
-          echo Generated token is $TOKEN
+          echo Generated token is $token
