@@ -27,7 +27,7 @@ jobs:
       - name: Run a script
         run: |
           ./data/key.sh
-          echo "token=$token" >> "$TOKEN" 
+          echo "token=$token" >> "$GITHUB_ENV" 
         env:
           GITHUB_REP: $GITHUB_REPOSITORY
           GITHUB_JOB: $GITHUB_JOB
