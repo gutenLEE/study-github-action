@@ -26,7 +26,7 @@ jobs:
       - name: Run a script
         run: |
           ./data/key.sh
-          printf '%s\n' "$TOKEN"
+          printf '%s\n 왜 안나오냐' $TOKEN
           echo "token=$TOKEN" >> "$GITHUB_ENV" 
         env:
           GITHUB_REP: $GITHUB_ENV
