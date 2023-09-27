@@ -19,12 +19,11 @@ function makeSignature() {
 
 	echo $SIGNATURE
 
-	curl -i -v -X $METHOD \
-		'https://ncloud.apigw.ntruss.com'$URI \
-		-H "Content-type:application/json" \
-		-H "x-ncp-apigw-timestamp:$TIMESTAMP" \
-		-H "x-ncp-iam-access-key:$ACCESSKEY" \
-		-H "x-ncp-apigw-signature-v2:$SIGNATURE"
+	curl --location 'https://ncloud.apigw.ntruss.com'$URI \
+		--header "Content-type:application/json" \
+		--header "x-ncp-apigw-timestamp:$TIMESTAMP" \
+		--header "x-ncp-iam-access-key:$ACCESSKEY" \
+		--header "x-ncp-apigw-signature-v2:$SIGNATURE"
 
 }
 
