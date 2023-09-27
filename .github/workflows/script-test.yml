@@ -25,7 +25,7 @@ jobs:
         run: chmod +x ./data/key.sh
       - name: Run a script
         run: |
-          var token=./data/key.sh
+          ./data/key.sh
           echo "token=$token" >> "$TOKEN" 
         env:
           GITHUB_REP: $GITHUB_REPOSITORY
