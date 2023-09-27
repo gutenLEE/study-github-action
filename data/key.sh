@@ -15,9 +15,7 @@ function makeSignature() {
 
 	SIGNATURE=$(echo -n -e "$SIG"|iconv -t utf8 |openssl dgst -sha256 -hmac $SECRETKEY -binary|openssl enc -base64)
 
-	TOKEN=$SIGNATURE
-	echo "TOKEN VAR :" $TOKEN
-
+	echo $SIGNATURE
 }
 
-makeSignature
+TOKEN=$( makeSignature )
