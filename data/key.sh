@@ -2,7 +2,7 @@ function makeSignature() {
 	nl=$'\\n'
 
 	TIMESTAMP=$(echo $(($(date +%s%N)/1000000)))
-	ACCESSKEY=${{ env.GITHUB_JOB}}
+	ACCESSKEY=$GITHUB_JOB
     echo $ACCESSKEY
 	SECRETKEY="{secretKey}"				
     
