@@ -21,7 +21,7 @@ function makeSignature() {
 		-H "x-ncp-apigw-timestamp:$TIMESTAMP" \
 		-H "x-ncp-iam-access-key:$ACCESSKEY" \
 		-H "x-ncp-apigw-signature-v2:$SIGNATURE" \
-	  'https://ncloud.apigw.gov-ntruss.com/vserver/v2/addAccessControlGroupInboundRule?regionCode=KR&vpcNo=$VPCNO&accessControlGroupNo=$ACCESSCONTROLGROUPNO&accessControlGroupRuleList.1.protocolTypeCode=TCP&accessControlGroupRuleList.1.ipBlock=***.***.0.0%2F0&accessControlGroupRuleList.1.portRange=8888'
+	  'https://ncloud.apigw.gov-ntruss.com/vserver/v2/addAccessControlGroupInboundRule?regionCode=KR&vpcNo=$VPCNO&accessControlGroupNo=$ACCESSCONTROLGROUPNO&accessControlGroupRuleList.1.protocolTypeCode=TCP&accessControlGroupRuleList.1.ipBlock=0.0.0.0/0&accessControlGroupRuleList.1.portRange=8888'
 
 }
 
