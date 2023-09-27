@@ -20,5 +20,7 @@ jobs:
     steps:
       - name: Check out the repository to the runner
         uses: actions/checkout@v4  
+      - name: Make the script files executable
+        run: chmod +x ./data/key.sh
       - name: Run a script
         run: ./data/key.sh
