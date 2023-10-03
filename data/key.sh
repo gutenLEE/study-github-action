@@ -21,7 +21,7 @@ function makeSignature() {
 		--header "Content-type:application/json" \
 		--header "x-ncp-apigw-timestamp:$TIMESTAMP" \
 		--header "x-ncp-iam-access-key:$ACCESSKEY" \
-		--header "x-ncp-apigw-signature-v2:$SIGNATURE | sed -n 's/.*<returnCode>\(.*\)<\/returnCode>.*/\1/p'"
+		--header "x-ncp-apigw-signature-v2:$SIGNATURE" | sed -n 's/.*<returnCode>\(.*\)<\/returnCode>.*/\1/p'
 }
 
 makeSignature
