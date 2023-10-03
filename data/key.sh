@@ -23,11 +23,10 @@ function makeSignature() {
 		--header "x-ncp-iam-access-key:$ACCESSKEY" \
 		--header "x-ncp-apigw-signature-v2:$SIGNATURE" | sed -n 's/.*<returnCode>\(.*\)<\/returnCode>.*/\1/p')
 	
-	if [responseCode==0];
-	then
+	if [ "$responseCode" -eq 0 ]; then
 		echo ':rocket: Successfully added.'
 	else
-		echo ':rotating_light: failed.'
+		echo ':rotating_light: Failed.'
 	fi
 
 }
