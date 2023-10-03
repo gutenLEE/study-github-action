@@ -24,9 +24,9 @@ function makeSignature() {
 		--header "x-ncp-apigw-signature-v2:$SIGNATURE" | sed -n 's/.*<returnCode>\(.*\)<\/returnCode>.*/\1/p')
 	
 	if [ "$responseCode" -eq 0 ]; then
-		echo ':rocket: Successfully added.'
+		echo 'U+2705 Successfully done.'
 	else
-		echo ':rotating_light: Failed.'
+		echo 'U+274C Failed.'
 	fi
 
 }
